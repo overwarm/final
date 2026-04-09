@@ -1,6 +1,6 @@
 @font-face {
     font-family: "font";
-    src: url("font.otf") format("opentype");
+    src: url("fonts/font.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
