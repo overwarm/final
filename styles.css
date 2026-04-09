@@ -2,43 +2,34 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background: black;
   overflow: hidden;
 }
 
-/* Container fills screen */
 .video-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
-/* Maintain aspect ratio like background-cover */
+/* TRUE "contain" behavior (NO CROPPING EVER) */
 .video-container iframe {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 177.77vh; /* 16:9 ratio */
+  width: 100vw;
   height: 100vh;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
-/* If screen is wider than 16:9 */
-@media (min-aspect-ratio: 16/9) {
-  .video-container iframe {
-    width: 100vw;
-    height: 56.25vw; /* 9/16 */
-  }
-}
-
-/* Overlay prevents clicks */
+/* overlay captures first click */
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
   z-index: 2;
+  cursor: pointer;
 }
