@@ -23,15 +23,11 @@
 const overlay = document.getElementById("overlay");
 const player = document.getElementById("ytplayer");
 
-// unmute on FIRST interaction
 overlay.addEventListener("click", () => {
   player.contentWindow.postMessage(
     '{"event":"command","func":"unMute","args":""}',
     "*"
   );
-  
-  // allow interaction after click (optional)
-  overlay.style.pointerEvents = "none";
 }, { once: true });
 </script>
 
