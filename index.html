@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>final; destination</title>
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=5">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
@@ -12,28 +12,22 @@
   <div id="intro-text">tap</div>
 </div>
 
-<div class="video-container" id="video-container">
-  <iframe
-    id="ytplayer"
-    src=""
-    frameborder="0"
-    allow="autoplay; fullscreen">
-  </iframe>
-  <div class="overlay" id="overlay"></div>
-</div>
+<video id="bg-video" loop muted playsinline>
+  <source src="video.mp4" type="video/mp4">
+</video>
 
 <script>
 const intro = document.getElementById("intro");
-const videoContainer = document.getElementById("video-container");
-const player = document.getElementById("ytplayer");
+const video = document.getElementById("bg-video");
 
-videoContainer.style.display = "none";
+video.style.display = "none";
 
 intro.addEventListener("click", () => {
   intro.style.display = "none";
-  videoContainer.style.display = "block";
-  
-  player.src = "https://www.youtube.com/embed/JfAJhs5m2CQ?autoplay=1&mute=0&loop=1&playlist=JfAJhs5m2CQ&controls=0&modestbranding=1&rel=0";
+  video.style.display = "block";
+  video.muted = false;
+  video.currentTime = 0;
+  video.play();
 }, { once: true });
 </script>
 
