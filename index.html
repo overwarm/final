@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>final; destination</title>
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
@@ -13,53 +13,27 @@
 </div>
 
 <div class="video-container" id="video-container">
-  <div id="player"></div>
+  <iframe
+    id="ytplayer"
+    src=""
+    frameborder="0"
+    allow="autoplay; fullscreen">
+  </iframe>
   <div class="overlay" id="overlay"></div>
 </div>
 
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-let player;
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    videoId: 'JfAJhs5m2CQ',
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      loop: 1,
-      playlist: 'JfAJhs5m2CQ',
-      modestbranding: 1,
-      rel: 0,
-      fs: 1
-    },
-    events: {
-      'onReady': onPlayerReady
-    }
-  });
-}
-
-function onPlayerReady(event) {
-  event.target.mute();
-  event.target.setPlaybackQuality('hd1080');
-}
-
 const intro = document.getElementById("intro");
 const videoContainer = document.getElementById("video-container");
-const overlay = document.getElementById("overlay");
+const player = document.getElementById("ytplayer");
 
 videoContainer.style.display = "none";
 
 intro.addEventListener("click", () => {
   intro.style.display = "none";
   videoContainer.style.display = "block";
-
-  if (player) {
-    player.seekTo(0, true);
-    player.unMute();
-    player.setPlaybackQuality('hd1080');
-    player.playVideo();
-  }
+  
+  player.src = "https://www.youtube.com/embed/JfAJhs5m2CQ?autoplay=1&mute=0&loop=1&playlist=JfAJhs5m2CQ&controls=0&modestbranding=1&rel=0";
 }, { once: true });
 </script>
 
