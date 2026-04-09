@@ -1,6 +1,6 @@
 @font-face {
     font-family: "MyCustomFont";
-    src: url("fonts/MyCustomFont.otf") format("opentype");
+    src: url("fonts/MyCustomFont.otf?v=2") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
@@ -44,7 +44,7 @@ html, body {
   height: 100%;
 }
 
-.video-container iframe {
+#player {
   position: absolute;
   top: 50%;
   left: 50%;
