@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>final; destination</title>
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
@@ -17,7 +17,8 @@
     id="ytplayer"
     src=""
     frameborder="0"
-    allow="autoplay; fullscreen">
+    allow="autoplay; fullscreen"
+    style="display:none;">
   </iframe>
   <div class="overlay" id="overlay"></div>
 </div>
@@ -32,8 +33,12 @@ videoContainer.style.display = "none";
 intro.addEventListener("click", () => {
   intro.style.display = "none";
   videoContainer.style.display = "block";
-  
+
   player.src = "https://www.youtube.com/embed/JfAJhs5m2CQ?autoplay=1&mute=0&loop=1&playlist=JfAJhs5m2CQ&controls=0&modestbranding=1&rel=0";
+  
+  player.onload = () => {
+    player.style.display = "block";
+  };
 }, { once: true });
 </script>
 
