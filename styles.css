@@ -1,6 +1,6 @@
 @font-face {
     font-family: "MyCustomFont";
-    src: url("fonts/MyCustomFont.otf?v=5") format("opentype");
+    src: url("fonts/MyCustomFont.otf?v=6") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
@@ -45,5 +45,5 @@ html, body {
   transform: translate(-50%, -50%);
   object-fit: contain;
   pointer-events: none;
-  z-index: 1;
+  display: none;
 }
