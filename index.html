@@ -9,14 +9,31 @@
 
 <div class="video-container">
   <iframe
-    src="https://www.youtube.com/embed/JfAJhs5m2CQ?autoplay=1&mute=1&loop=1&playlist=JfAJhs5m2CQ&controls=0&modestbranding=1&rel=0"
+    id="ytplayer"
+    src="https://www.youtube.com/embed/JfAJhs5m2CQ?autoplay=1&mute=1&loop=1&playlist=JfAJhs5m2CQ&controls=0&modestbranding=1&rel=0&enablejsapi=1"
     frameborder="0"
     allow="autoplay; fullscreen"
     allowfullscreen>
   </iframe>
-  
-  <div class="overlay"></div>
+
+  <div class="overlay" id="overlay"></div>
 </div>
+
+<script>
+const overlay = document.getElementById("overlay");
+const player = document.getElementById("ytplayer");
+
+// unmute on FIRST interaction
+overlay.addEventListener("click", () => {
+  player.contentWindow.postMessage(
+    '{"event":"command","func":"unMute","args":""}',
+    "*"
+  );
+  
+  // allow interaction after click (optional)
+  overlay.style.pointerEvents = "none";
+}, { once: true });
+</script>
 
 </body>
 </html>
