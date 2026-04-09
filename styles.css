@@ -14,7 +14,6 @@ html, body {
   height: 100%;
 }
 
-/* TRUE "contain" behavior (NO CROPPING EVER) */
 .video-container iframe {
   position: absolute;
   top: 50%;
@@ -25,11 +24,11 @@ html, body {
   pointer-events: none;
 }
 
-/* overlay captures first click */
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 2;
   cursor: pointer;
+  pointer-events: auto;
 }
